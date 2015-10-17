@@ -1,4 +1,4 @@
-# SigPatient-Plus
+# Ecotech App
 
 Aplicação mobile, utilizando os frameworks Cordova, Ionic e AngularJS.
 
