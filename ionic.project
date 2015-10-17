@@ -1,0 +1,10 @@
+{
+  "name": "sighealthplus",
+  "app_id": "14be864c",
+  "proxies": [
+    {
+      "path": "/rnd/3.0/vrm/api/v2",
+      "proxyUrl": "http://sigbox.cpv.signove.com/rnd/3.0/vrm/api/v2"
+    }
+  ]
+}

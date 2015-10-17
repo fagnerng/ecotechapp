@@ -1,0 +1,7 @@
+.bar {
+    border-bottom: solid 2px $c2 !important;
+
+    .title {
+        @extend .t1;
+    }
+}

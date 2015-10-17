@@ -1,0 +1,22 @@
+<ion-side-menus enable-menu-with-back-views="true">
+
+    <!-- Center content -->
+    <ion-side-menu-content id="ionContent" drag-content="toggledrag" >
+        <ion-nav-view name="viewContent">
+        </ion-nav-view>
+    </ion-side-menu-content>
+
+    <!-- Left menu -->
+    <ion-side-menu side="left" class="side-menu" >
+        <ion-content has-bouncing="false" class="hasnt-header" scroll="false" >
+
+            <!-- Menu Items -->
+            <a class="item item-icon-left text" ng-repeat="item in mainCtrl.menus"
+                ui-sref-active="selected" ui-sref="{{item.state}}" menu-close >
+                    <i class="spp-icon icon" ng-class="item.icon"></i>
+                    {{item.title}}
+            </a>
+
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

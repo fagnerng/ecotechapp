@@ -1,0 +1,33 @@
+$minHeight: 1;
+$maxHeight: 100;
+
+@for $i from $minHeight through $maxHeight {
+    $perc: $i * 1%;
+
+    .height-#{$i} {
+        min-height: #{$perc};
+        max-height: #{$perc};
+    }
+
+    .col-#{$i} {
+        flex: 0 0 #{$perc};
+        max-width: #{$perc};
+    }
+}
+
+.wide-as-needed {
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-item-center {
+    align-items: center;
+}

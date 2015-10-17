@@ -1,0 +1,36 @@
+/**
+ * Overwrite ionic SCSS
+ */
+
+
+// Colors
+// -------------------------------
+
+$positive: $c1;
+
+
+// Base
+// -------------------------------
+
+$base-color: $c1;
+$font-family-sans-serif: 'Lato', sans-serif;
+
+
+// Buttons
+// -------------------------------
+
+
+// Items
+// -------------------------------
+
+$item-default-border: #317239;
+
+// Forms
+// -------------------------------
+
+$input-bg: #F2F2F2;
+
+$input-border: #34894C;
+$input-border-width: 2px;
+$input-label-color: #34894C;
+$input-color-placeholder: $input-label-color;

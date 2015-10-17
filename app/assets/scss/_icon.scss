@@ -1,0 +1,10 @@
+$minMultiplier: 1;
+$maxMultiplier: 10;
+
+
+@for $i from $minMultiplier through $maxMultiplier {
+    $perc: $i * 100%;
+    .icon-#{$i}x {
+        font-size: #{$perc};
+    }
+}

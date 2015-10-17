@@ -1,0 +1,27 @@
+/**
+ * Import fonts either via @import url (e.g. from Googlee Fonts)
+ * or via @font-face when font files are stored locally in /app/fonts
+ */
+
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:700,400,300);
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic);
+
+// Font-Styles
+// -------------------------------
+@mixin font-style($family, $size) {
+    font-family: $family, sans-serif !important;
+    font-size: $size / 4 !important;
+}
+
+.t1 { @include font-style('Lato Bold', 80px); }
+.t2 { @include font-style('Lato Regular', 72px); }
+.t3 { @include font-style('Lato Regular', 56px); }
+.t4 { @include font-style('Lato Regular', 48px); }
+.t5 { @include font-style('Lato Regular', 64px); }
+.t6 { @include font-style('Lato Light', 64px); }
+.t7 { @include font-style('Lato Regular', 80px); }
+.t8 { @include font-style('Lato Regular', 60px); }
+.t9 { @include font-style('Lato Light', 128px); }
+.t10 { @include font-style('Lato Regular', 100px); }

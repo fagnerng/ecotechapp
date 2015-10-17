@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# -----------------------------------------------------------------
+#                 Integração Continua - Jenkins Script
+#
+#  Este script será executado pelo Jenkins para compilar, testar
+#  e gerar apk da aplicação.
+#
+# -----------------------------------------------------------------
+
+# imprimir todos os comandos executados nesse script.
+set -x
+
+npm config set registry http://registry.npmjs.org/
+
+# verifica se cordova esta instalado globalmente:
+npm list -g cordova
+
+# Substitui os links do plugin de http para ssh://ci.builder:
+npm install replace
+node_modules/.bin/replace 'https://trac.cpv.signove.com/gerrit' 'ssh://ci.builder@trac.cpv.signove.com:29418' package.json
+
+# instalar todas as dependencias:
+npm install
+
+# Gera a documentação:
+node_modules/.bin/gulp docs
+
+# Gera apk da aplicação:
+node_modules/.bin/gulp package
+
+# Executa os testes:
+node_modules/.bin/gulp test || return 0

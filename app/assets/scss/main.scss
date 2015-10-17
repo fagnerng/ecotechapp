@@ -1,0 +1,34 @@
+/************************************
+ *
+ *  Main Styles to compile. Here only @imports!
+ *
+ ************************************/
+
+@import "_variables";
+@import "_fonts";
+@import "_grid";
+@import "_icon";
+@import "_text";
+@import "_colors";
+
+@import "ionic/_main";
+
+/**
+ * LAYOUT
+ */
+
+@import "layout/layout";
+
+
+/**
+ * INJECTED COMPONENTS SCSS
+ */
+
+//- inject:scss
+//- endinject
+
+/**
+ * IONIC
+ */
+
+@import "bower_components/ionic/scss/ionic.scss";
