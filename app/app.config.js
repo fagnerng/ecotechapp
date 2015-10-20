@@ -1,35 +1,17 @@
 (function() {
     'use strict';
 
-    /**
-     * Constante que será setada para `falso` pelo gulp se o parâmetro `--release` for passado no passo de build.
-     *
-     * @ngdoc constant
-     * @memberof SigPatientPlus
-     * @name SigPatientPlusDebug
-     */
     var DEBUG_MODE = true;
 
     // gulp-inject-debug-mode
 
     angular.module('EcotechApp')
-        .run(SigPatientPlusRun)
-        .constant('SigPatientPlusDebug', DEBUG_MODE)
-        .config(SigPatientPlusConfig);
+        .run(EcotechAppRun)
+        .constant('EcotechAppDebug', DEBUG_MODE)
+        .config(EcotechAppConfig);
 
-    /**
-     * Application Settings
-     *
-     * @memberof SigPatientPlus
-     * @param $stateProvider
-     * @param $compileProvider
-     * @param $logProvider
-     * @param $ionicConfigProvider
-     * @param SigPatientPlusDebug
-     * @constructor
-     */
-    function SigPatientPlusConfig($stateProvider, $compileProvider, $logProvider,$urlRouterProvider,
-                                  $ionicConfigProvider, SigPatientPlusDebug) {
+    function EcotechAppConfig($stateProvider, $compileProvider, $logProvider,$urlRouterProvider,
+                                  $ionicConfigProvider, EcotechAppDebug) {
         var appState = {
             url: '/app',
             abstract: true,
@@ -47,31 +29,43 @@
                 },
             },
         };
-
-
+        var aboutState = {
+            url: '/about',
+            cache: false,
+            views: {
+                viewContent: {
+                    templateUrl: 'about/about.html',
+                },
+            },
+        };
 
         // Application routing
         $stateProvider
             .state('app', appState)
-            .state('app.dashboard', dashboardState);
+            .state('app.dashboard', dashboardState)
+            .state('app.about', aboutState);
 
         // redirects to default route for undefined routes
-        $urlRouterProvider.otherwise('/app/dashboard');
+        //$urlRouterProvider.otherwise('/app/dashboard');
+        $urlRouterProvider.otherwise('/app/about');
 
         // Disable/Enable SigPatientPlusDebug things
-        $compileProvider.debugInfoEnabled(SigPatientPlusDebug);
-        $logProvider.debugEnabled(SigPatientPlusDebug);
+        $compileProvider.debugInfoEnabled(EcotechAppDebug);
+        $logProvider.debugEnabled(EcotechAppDebug);
 
         // Ionic Configs
         $ionicConfigProvider.tabs.style('standard');
         $ionicConfigProvider.tabs.position('top');
+
     }
 
 
-    function SigPatientPlusRun($ionicPlatform, $state, $rootScope) {
-        $rootScope.$state = $state;
+    function EcotechAppRun($ionicPlatform, $state, $rootScope) {
+
         $ionicPlatform.ready(function() {
-                navigator.globalization.getPreferredLanguage(
+            $rootScope.$state = $state;
+
+            navigator.globalization.getPreferredLanguage(
                 function(language) {$rootScope.language = language.value;},
                 function() {$rootScope.language = 'en-US';}
             );

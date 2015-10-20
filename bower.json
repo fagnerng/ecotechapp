@@ -2,14 +2,17 @@
   "name": "SigPatientPlus",
   "author": "Signove <contato@signove.com>",
   "private": "true",
-  "devDependencies": {},
+  "devDependencies": {
+    "bootstrap": "~3.3.5"
+  },
   "dependencies": {
     "ionic": "~1.0.0",
     "angular": "~1.3.0",
     "ngCordova": "~0.1.17-alpha",
     "angular-resource": "~1.3.0",
     "lodash": "~3.9.3",
-    "angular-filter": "~0.5.4"
+    "angular-filter": "~0.5.4",
+    "angular-translate": "~2.8.1"
   },
   "resolutions": {
     "angular": "1.3.13"

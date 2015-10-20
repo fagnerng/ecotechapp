@@ -14,7 +14,7 @@
             <a class="item item-icon-left text" ng-repeat="item in mainCtrl.menus"
                 ui-sref-active="selected" ui-sref="{{item.state}}" menu-close >
                     <i class="spp-icon icon" ng-class="item.icon"></i>
-                    {{item.title}}
+                    {{item.title | translate}}
             </a>
 
         </ion-content>

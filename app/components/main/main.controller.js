@@ -6,7 +6,7 @@
 
 
     function MainController($log) {
-        $log.debug('DashboardController')
+        $log.debug('DashboardController');
         var vm = this;
 
         vm.menus = _getMenus();
@@ -14,15 +14,21 @@
         function _getMenus() {
             return [
                 {
-                    title: 'Home',
+                    title: 'menu.home',
                     state: 'app.dashboard',
-                    icon: 'icon-home',
+                    icon: 'ion-home',
                 },
                 {
-                    title: 'About and Help',
-                    state: 'app.about',
-                    icon: 'icon-about',
+                    title: 'menu.leaf',
+                    state: 'app.leaf',
+                    icon: 'ion-leaf',
                 },
+                {
+                    title: 'menu.about',
+                    state: 'app.about',
+                    icon: 'ion-help',
+                },
+
             ];
         }
 

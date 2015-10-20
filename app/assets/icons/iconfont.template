@@ -9,7 +9,7 @@
     font-style: normal;
 }
 
-.spp-icon:before {
+.eco-icon:before {
     font-family: "<%= fontName %>";
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

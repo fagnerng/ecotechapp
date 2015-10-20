@@ -13,6 +13,7 @@
         'angular.filter',
         'Utils',
         'Lodash',
+        'translations',
     ]);
 
 })();

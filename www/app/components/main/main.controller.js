@@ -13,13 +13,17 @@
 
         function _getMenus() {
             return [{
-                title: 'Home',
+                title: 'menu.home',
                 state: 'app.dashboard',
-                icon: 'icon-home'
+                icon: 'ion-home'
             }, {
-                title: 'About and Help',
+                title: 'menu.leaf',
+                state: 'app.leaf',
+                icon: 'ion-leaf'
+            }, {
+                title: 'menu.about',
                 state: 'app.about',
-                icon: 'icon-about'
+                icon: 'ion-help'
             }];
         }
     }

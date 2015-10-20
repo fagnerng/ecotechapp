@@ -6,7 +6,7 @@
 
 
     function DashboardController($log) {
-        $log.debug('DashboardController')
+        $log.debug('DashboardController');
     }
 
 })();

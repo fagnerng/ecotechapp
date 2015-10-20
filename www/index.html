@@ -16,7 +16,6 @@
 
     <!-- inject:app-styles:css -->
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/spp-icons.css">
     <!-- endinject -->
 </head>
 <body ng-app="EcotechApp">
@@ -35,13 +34,16 @@
     <script src="vendor/lodash.js"></script>
     <script src="vendor/ng-cordova.js"></script>
     <script src="vendor/angular-filter.js"></script>
+    <script src="vendor/angular-translate.min.js"></script>
     <!-- endinject -->
 
 
     <!-- inject:app:js -->
     <script src="app/app.module.js"></script>
     <script src="app/app.config.js"></script>
+    <script src="app/shared/translation/translations.module.js"></script>
     <script src="app/shared/utils/utils.module.js"></script>
+    <script src="app/shared/translation/translations.config.js"></script>
     <script src="app/templates.js"></script>
     <script src="app/components/dashboard/dashboard.controller.js"></script>
     <script src="app/components/main/main.controller.js"></script>
@@ -50,8 +52,6 @@
     <script src="app/shared/utils/utils-onclick-backpage.directive.js"></script>
     <script src="app/shared/utils/utils-onclick-goto.directive.js"></script>
     <script src="app/shared/utils/utils-time.js"></script>
-    <script src="app/shared/utils/chart/carray.js"></script>
-    <script src="app/shared/utils/chart/rt-ecg-chart.js"></script>
     <!-- endinject -->
 
     <!-- inject:cordova:js -->
