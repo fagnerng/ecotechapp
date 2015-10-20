@@ -12,9 +12,10 @@ angular.module('translations')
             menu: {
                 home: 'Inicio',
                 about: 'Sobre',
-                leaf: 'hortas',
+                leaf: 'Hortas',
             },
         });
+        $translateProvider.useSanitizeValueStrategy('sanitize');
         $translateProvider.preferredLanguage('br');
     }
 })();
