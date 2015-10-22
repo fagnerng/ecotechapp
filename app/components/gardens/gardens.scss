@@ -1,0 +1,14 @@
+.gardens {
+    span {
+        display: inline-block !important;
+        width: 100%;
+    }
+
+    .item {
+        border-bottom: solid 2px $c6;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background-color: $c4;
+    }
+}

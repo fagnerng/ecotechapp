@@ -12,8 +12,17 @@ angular.module('translations')
             menu: {
                 home: 'Inicio',
                 about: 'Sobre',
-                leaf: 'Hortas',
+                gardens: 'Hortas',
             },
+            title: {
+                home: 'Ecotech',
+                about: 'Sobre',
+                gardens: 'Hortas',
+            },
+            alert: {
+                noGardens: 'Sem hortas',
+                addMoreGardens: 'Adicione novas hortas para continuar'
+            }
         });
         $translateProvider.useSanitizeValueStrategy('sanitize');
         $translateProvider.preferredLanguage('br');

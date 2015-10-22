@@ -15,13 +15,15 @@
         var appState = {
             url: '/app',
             abstract: true,
+            cache: true,
             templateUrl: 'main/main.html',
             controller: 'MainController as mainCtrl',
         };
 
         var dashboardState = {
             url: '/dashboard',
-            cache: false,
+            cache: true,
+            abstract: false,
             views: {
                 viewContent: {
                     templateUrl: 'dashboard/dashboard.html',
@@ -31,7 +33,8 @@
         };
         var aboutState = {
             url: '/about',
-            cache: false,
+            cache: true,
+            abstract: false,
             views: {
                 viewContent: {
                     templateUrl: 'about/about.html',
@@ -39,15 +42,41 @@
             },
         };
 
+        var gardensState = {
+            url: '/gardens',
+            cache: false,
+            abstract: false,
+            views: {
+                viewContent: {
+                    templateUrl: 'gardens/gardens.html',
+                    controller: 'GardensController as gardensCtrl'
+                },
+            },
+        };
+
+        var gardensListState = {
+            url: '/list',
+            cache: false,
+            abstract: false,
+            views: {
+                viewContent: {
+                    templateUrl: 'gardens/gardens.list.html',
+                },
+            },
+            templateUrl: 'gardens/gardens.list.html',
+        };
+
         // Application routing
         $stateProvider
             .state('app', appState)
             .state('app.dashboard', dashboardState)
-            .state('app.about', aboutState);
+            .state('app.about', aboutState)
+            .state('app.gardens', gardensState);
+            //.state('app.gardens.list', gardensListState);
 
         // redirects to default route for undefined routes
         //$urlRouterProvider.otherwise('/app/dashboard');
-        $urlRouterProvider.otherwise('/app/about');
+        $urlRouterProvider.otherwise('/app/dashboard');
 
         // Disable/Enable SigPatientPlusDebug things
         $compileProvider.debugInfoEnabled(EcotechAppDebug);

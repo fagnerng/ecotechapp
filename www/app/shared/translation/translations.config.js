@@ -13,9 +13,19 @@
             menu: {
                 home: 'Inicio',
                 about: 'Sobre',
-                leaf: 'hortas'
+                gardens: 'Hortas'
+            },
+            title: {
+                home: 'Ecotech',
+                about: 'Sobre',
+                gardens: 'Hortas'
+            },
+            alert: {
+                noGardens: 'Sem hortas',
+                addMoreGardens: 'Adicione novas hortas para continuar'
             }
         });
+        $translateProvider.useSanitizeValueStrategy('sanitize');
         $translateProvider.preferredLanguage('br');
     }
     TranslationsConfig.$inject = ["$translateProvider"];

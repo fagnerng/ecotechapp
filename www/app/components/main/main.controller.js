@@ -17,8 +17,8 @@
                 state: 'app.dashboard',
                 icon: 'ion-home'
             }, {
-                title: 'menu.leaf',
-                state: 'app.leaf',
+                title: 'menu.gardens',
+                state: 'app.gardens',
                 icon: 'ion-leaf'
             }, {
                 title: 'menu.about',
