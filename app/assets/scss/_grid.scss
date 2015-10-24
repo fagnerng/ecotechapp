@@ -9,6 +9,11 @@ $maxHeight: 100;
         max-height: #{$perc} !important;
     }
 
+    .width-#{$i} {
+        min-width: #{$perc} !important;
+        max-width: #{$perc} !important;
+    }
+
     .col-#{$i} {
         flex: 0 0 #{$perc};
         max-width: #{$perc};

@@ -1,7 +1,7 @@
 <ion-side-menus enable-menu-with-back-views="true">
 
     <!-- Center content -->
-    <ion-side-menu-content id="ionContent" drag-content="toggledrag" >
+    <ion-side-menu-content id="ionContent" drag-content="true" >
         <ion-nav-view name="viewContent">
         </ion-nav-view>
     </ion-side-menu-content>
@@ -12,7 +12,8 @@
 
             <!-- Menu Items -->
             <a class="item item-icon-left text" ng-repeat="item in mainCtrl.menus"
-                ui-sref-active="selected" ui-sref="{{item.state}}" menu-close >
+                ui-sref-active="selected" ui-sref="{{item.state}}" menu-close
+                    ng-style="$last? 'border: none !important;' : ''">
                     <i class="spp-icon icon" ng-class="item.icon"></i>
                     {{item.title | translate}}
             </a>

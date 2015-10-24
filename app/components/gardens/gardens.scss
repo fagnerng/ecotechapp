@@ -9,6 +9,10 @@
         border-top: none;
         border-left: none;
         border-right: none;
-        background-color: $c4;
     }
+
+    .item:last-child {
+        border: none;
+    }
+
 }

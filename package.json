@@ -1,13 +1,13 @@
 {
-  "name": "sighealthplus",
-  "version": "2.0.0",
-  "author": "Signove <contato@signove.com>",
+  "name": "EcotechApp",
+  "version": "0.0.1",
+  "author": "Fagner Gomes <fagnerngomes@gmail.com>",
   "description": "Aplicação mobile, utilizando os frameworks Cordova, Ionic e AngularJS.",
   "dependencies": {},
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
-    "url": "https://trac.cpv.signove.com/gerrit/sigplus-patient"
+    "url": "https://github.com/fagnerng/ecotechapp"
   },
   "private": true,
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
-  "name": "SigPatientPlus",
-  "author": "Signove <contato@signove.com>",
+  "name": "EcotechApp",
+  "author": "Fagner Gomes <fagnerngomes@gmail.com>",
   "private": "true",
   "devDependencies": {
     "bootstrap": "~3.3.5"

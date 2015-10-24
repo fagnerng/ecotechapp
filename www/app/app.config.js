@@ -42,7 +42,7 @@
 
         var gardensState = {
             url: '/gardens',
-            cache: false,
+            cache: true,
             abstract: false,
             views: {
                 viewContent: {
@@ -52,9 +52,21 @@
             }
         };
 
+        var tipsState = {
+            url: '/tips',
+            cache: true,
+            abstract: false,
+            views: {
+                viewContent: {
+                    templateUrl: 'tips/tips.html',
+                    controller: 'TipsController as tipsCtrl'
+                }
+            }
+        };
+
         var gardensListState = {
             url: '/list',
-            cache: false,
+            cache: true,
             abstract: false,
             views: {
                 viewContent: {
@@ -65,12 +77,12 @@
         };
 
         // Application routing
-        $stateProvider.state('app', appState).state('app.dashboard', dashboardState).state('app.about', aboutState).state('app.gardens', gardensState);
+        $stateProvider.state('app', appState).state('app.dashboard', dashboardState).state('app.about', aboutState).state('app.gardens', gardensState).state('app.tips', tipsState);
         //.state('app.gardens.list', gardensListState);
 
         // redirects to default route for undefined routes
-        //$urlRouterProvider.otherwise('/app/dashboard');
         $urlRouterProvider.otherwise('/app/dashboard');
+        //$urlRouterProvider.otherwise('/app/tips');
 
         // Disable/Enable SigPatientPlusDebug things
         $compileProvider.debugInfoEnabled(EcotechAppDebug);

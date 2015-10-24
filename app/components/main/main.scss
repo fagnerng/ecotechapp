@@ -1,5 +1,17 @@
 .side-menu {
-  .item{
-      border: none;
-  }
+    .item{
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-bottom: solid 2px $c6;
+    }
+
+    .item:last-child {
+        border: none;
+    }
+
+    .selected {
+        color: $c2 !important;
+    }
 }
+

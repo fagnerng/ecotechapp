@@ -21,6 +21,10 @@
                 state: 'app.gardens',
                 icon: 'ion-leaf'
             }, {
+                title: 'menu.tips',
+                state: 'app.tips',
+                icon: 'ion-ios-lightbulb'
+            }, {
                 title: 'menu.about',
                 state: 'app.about',
                 icon: 'ion-help'
