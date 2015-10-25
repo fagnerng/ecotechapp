@@ -1,0 +1,25 @@
+<ion-view>
+    <ion-header-bar align-title="left" class="bar-positive">
+        <button id="btn-menu" class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+        <h1 class="title">{{'title.plants' | translate}}</h1>
+        <!--<button class="button button-icon icon ion-android-add-circle" ng-click=""></button>-->
+    </ion-header-bar>
+    <ion-content class="gardens" padding="false" scroll="false">
+        <div ng-if="plantsCtrl.gardensList.length <= 0" class="col col-100 text-center">
+            <span class="row row-center col-100 text-center" ng-bind="'alert.noGardens' | translate"></span>
+            <span class="row row-center col-100 text-center" ng-bind="'alert.addMoreGardens' | translate"></span>
+        </div>
+        <ion-scroll class="height-100 padding" has-bouncing="true" >
+            <ion-list >
+                <ion-item ng-repeat="item in plantsCtrl.plantsList"
+                          ng-click="plantsCtrl.show(item)"
+                          class="item-thumbnail-left">
+
+                    <img class="autosize-100" src="assets/images/plants/{{item}}/0.jpg">
+                    <h2 ng-bind-html="'plant.' + item | translate"></h2>
+                    <p ng-bind-html="'description.' + item | translate"></p>
+                </ion-item>
+            </ion-list>
+        </ion-scroll>
+    </ion-content>
+</ion-view>

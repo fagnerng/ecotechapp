@@ -12,12 +12,14 @@
             home: 'Inicio',
             about: 'Sobre',
             gardens: 'Hortas',
+            plants: 'Plantas',
             tips: 'Dicas'
         },
         title: {
             home: 'Ecotech',
             about: 'Sobre',
             gardens: 'Hortas',
+            plants: 'Plantas',
             tips: 'Dicas'
         },
         alert: {
@@ -39,6 +41,29 @@
         button: {
             previous: 'Anterior',
             next: 'Pr&#243;xima'
+        },
+
+        plant: {
+            alecrim: 'Alecrim',
+            cebolinha: 'Cebolinha',
+            coentro: 'Coentro',
+            hortela: 'Hortel&#227;',
+            manjericao: 'Manjeric&#227;o',
+            oregano: 'Or&#233;gano',
+            salsinha: 'Salsinha',
+            salvia: 'Salvia',
+            tomilho: 'Tomilho'
+        },
+        description: {
+            alecrim: 'Usado no preparo de carnes, ensopados, aves,peixes, verduras e legumes.',
+            cebolinha: 'Pratos salgados em geral, saladas, queijos, pat&#234;s, sopas, molhos e risotos.',
+            coentro: 'Harmoniza com saladas, legumes, sopas, frutos do mar, peixes, carnes, arroz e molhos.',
+            hortela: 'As folhas v&#227;o bem em pratos doces e em salgados. Muito usada em drinks.',
+            manjericao: 'Combina com pratos &#224; base de tomate, sopas, massas, saladas e carne vermelha.',
+            oregano: 'Um tempero muito usado na cozinha italiana, vai bem com saladas e molhos de tomate.',
+            salsinha: '&#211;tima para temperar carnes vermelhas, aves e peixes. Combina com molhos, legumes e sopas.',
+            salvia: 'Aves combinam com o sabor da s&#225;lvia, al&#233;m de cremes, queijos e molhos.',
+            tomilho: 'Bom para carne vermelha, su&#237;na, aves e peixes, al&#233;m de pat&#234;s, sopas, pur&#234;s e molhos de tomate.'
         }
     };
 

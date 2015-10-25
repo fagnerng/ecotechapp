@@ -19,6 +19,10 @@
             }, {
                 title: 'menu.gardens',
                 state: 'app.gardens',
+                icon: 'ion-ios-nutrition'
+            }, {
+                title: 'menu.plants',
+                state: 'app.plants',
                 icon: 'ion-leaf'
             }, {
                 title: 'menu.tips',

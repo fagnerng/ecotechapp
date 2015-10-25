@@ -17,7 +17,6 @@
             templateUrl: 'main/main.html',
             controller: 'MainController as mainCtrl'
         };
-
         var dashboardState = {
             url: '/dashboard',
             cache: true,
@@ -39,19 +38,17 @@
                 }
             }
         };
-
-        var gardensState = {
-            url: '/gardens',
+        var plantsState = {
+            url: '/plants',
             cache: true,
             abstract: false,
             views: {
                 viewContent: {
-                    templateUrl: 'gardens/gardens.html',
-                    controller: 'GardensController as gardensCtrl'
+                    templateUrl: 'plants/plants.html',
+                    controller: 'PlantsController as plantsCtrl'
                 }
             }
         };
-
         var tipsState = {
             url: '/tips',
             cache: true,
@@ -63,25 +60,20 @@
                 }
             }
         };
-
-        var gardensListState = {
-            url: '/list',
-            cache: true,
+        var plantState = {
+            url: '/plant:type',
+            cache: false,
             abstract: false,
-            views: {
-                viewContent: {
-                    templateUrl: 'gardens/gardens.list.html'
-                }
-            },
-            templateUrl: 'gardens/gardens.list.html'
+            templateUrl: 'plant/plant.html',
+            controller: 'PlantController as plantCtrl'
         };
 
         // Application routing
-        $stateProvider.state('app', appState).state('app.dashboard', dashboardState).state('app.about', aboutState).state('app.gardens', gardensState).state('app.tips', tipsState);
+        $stateProvider.state('app', appState).state('app.dashboard', dashboardState).state('app.about', aboutState).state('app.plants', plantsState).state('app.tips', tipsState).state('plant', plantState);
         //.state('app.gardens.list', gardensListState);
 
         // redirects to default route for undefined routes
-        $urlRouterProvider.otherwise('/app/dashboard');
+        $urlRouterProvider.otherwise('/app/plants');
         //$urlRouterProvider.otherwise('/app/tips');
 
         // Disable/Enable SigPatientPlusDebug things

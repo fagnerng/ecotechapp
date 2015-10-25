@@ -1701,6 +1701,36 @@ h1, h2, h3, h4, h5, h6, p {
     .about .students .students-row .text-right {
       border-right: solid 1px #B3B3B3 !important; }
 
+.side-menu .item {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: solid 2px #B3B3B3; }
+
+.side-menu .item:last-child {
+  border: none; }
+
+.side-menu .selected {
+  color: #38ab43 !important; }
+
+/**
+ * Created by fagnerng on 23/10/2015.
+ */
+.plants span {
+  width: 100% !important; }
+
+.plants .page {
+  padding-top: 1%;
+  padding-left: 5%;
+  padding-right: 5%; }
+
+.plants .margin {
+  margin: 5%; }
+
+.plants .imagem {
+  max-width: 100%;
+  max-height: 60%; }
+
 .gardens span {
   display: inline-block !important;
   width: 100%; }
@@ -1714,17 +1744,8 @@ h1, h2, h3, h4, h5, h6, p {
 .gardens .item:last-child {
   border: none; }
 
-.side-menu .item {
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-bottom: solid 2px #B3B3B3; }
-
-.side-menu .item:last-child {
-  border: none; }
-
-.side-menu .selected {
-  color: #38ab43 !important; }
+.gardens .item p {
+  white-space: initial; }
 
 /**
  * Created by fagnerng on 23/10/2015.

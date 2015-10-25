@@ -1,0 +1,30 @@
+<ion-view>
+    <meta charset="utf-8">
+    <ion-header-bar align-title="left" class="bar-positive">
+        <button id="btn-menu" class="button button-icon icon ion-chevron-left" utils-onclick-backpage></button>
+        <h1 class="title" ng-bind-html="'plant.' + plantCtrl.type | translate"></h1>
+    </ion-header-bar>
+    <ion-content class="plants" padding="false" scroll="false" >
+        <div class="flex flex-col height-15">
+            <span class="width-100 text-center c7 t3 padding-horizontal " ng-bind-html="'description.' + plantCtrl.type | translate"></span>
+        </div>
+        <ion-scroll class="height-65" direction="x" has-bouncing="true" delegate-handle="content"
+                    paging="true" on-scroll="plantCtrl.onScroll()" scrollbar-x="false">
+            <div class="row row-no-padding row-center">
+                <div class="col-100 page" ng-repeat="plant in plantCtrl.plants" id="page_{{$index}}">
+                    <img class="imagem" src="assets/images/plants/{{plantCtrl.type}}/{{plant}}.jpg">
+                </div>
+            </div>
+        </ion-scroll>
+        <div class="height-5 row row-center text-center width-60 col-offset-20">
+            <i ng-repeat="plant in plantCtrl.plants" class="col icon" ng-click="plantCtrl.goTo($index)"
+               ng-class="plantCtrl.currentPage === $index ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'"></i>
+        </div>
+        <div class="row row-center height-15 row-no-padding">
+            <button class="button height-10 button-positive col-40 margin" ng-disabled="!plantCtrl.shouldScrollRight()"
+                    ng-click="plantCtrl.moveRight()" ng-bind-html="'button.previous' | translate"></button>
+            <button class="button height-10 button-positive col-40 margin" ng-disabled="!plantCtrl.shouldScrollLeft()"
+                    ng-click="plantCtrl.moveLeft()" ng-bind-html="'button.next' | translate"></button>
+        </div>
+    </ion-content>
+</ion-view>
