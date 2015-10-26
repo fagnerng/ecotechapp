@@ -64,7 +64,8 @@
             salsinha: '&#211;tima para temperar carnes vermelhas, aves e peixes. Combina com molhos, legumes e sopas.',
             salvia: 'Aves combinam com o sabor da s&#225;lvia, al&#233;m de cremes, queijos e molhos.',
             tomilho: 'Bom para carne vermelha, su&#237;na, aves e peixes, al&#233;m de pat&#234;s, sopas, pur&#234;s e molhos de tomate.'
-        }
+        },
+        remove: 'Remover'
     };
 
     function TranslationsConfig($translateProvider) {

@@ -6,15 +6,19 @@
     </ion-header-bar>
     <ion-content class="gardens" padding="false" scroll="false">
         <div class="row text-center row-center height-10" ng-if="loading">
-            <ion-spinner class=""></ion-spinner>
+            <center><ion-spinner class=""></ion-spinner></center>
         </div>
         <ion-scroll class="height-100 padding" has-bouncing="true" >
             <ion-list >
                 <ion-item class="item-thumbnail-left" ng-repeat="garden in gardens track by $index"
                         ng-click="show($index)">
                     <img src="assets/images/wheater/big/sunny.png">
-                    <h2>sunny</h2>
+                    <h2>{{garden.timestamp | date : 'HH:mm:ss.sss'}}</h2>
                     <p>:desc</p>
+                    <ion-option-button class="button-assertive" ng-click="showRemoveConfirm($index)">
+                        {{'remove' | translate}}
+
+                    </ion-option-button>
                 </ion-item>
 
             </ion-list>
