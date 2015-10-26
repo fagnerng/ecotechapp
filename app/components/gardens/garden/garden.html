@@ -5,6 +5,11 @@
         <button class="button button-icon icon ion-edit" ng-click="openPopover()"></button>
     </ion-header-bar>
     <ion-content class="garden" padding="false" scroll="false" ng-click="dimissPopOver()">
+
+        <label class="item item-input">
+            <span class="input-label" ng-bind-html="('name' | translate) + ':'"></span>
+            <input type="text" ng-model="g.name" placeholder="{{'placeholder.name' | translate}}">
+        </label>
         <label class="item item-input">
             <span class="input-label" ng-bind-html="('city' | translate) + ':'"></span>
             <input type="text" ng-change="autocomplete()" ng-model="g.city" placeholder="{{'placeholder.city' | translate}}">
@@ -15,9 +20,34 @@
             </ion-item>
         </ion-list>
         <label class="item item-input">
-            <span class="input-label" ng-bind-html="('name' | translate) + ':'"></span>
-            <input type="text" ng-model="g.name" placeholder="{{'placeholder.name' | translate}}">
+            <span class="input-label" ng-bind-html="('size' | translate) + ':'"></span>
+            <input class="width-20" type="number" ng-model="g.size.w" placeholder="{{'placeholder.width' | translate}}">
+            <input class="width-20" type="number" ng-model="g.size.h" placeholder="{{'placeholder.height' | translate}}">
         </label>
+        <label class="item item-input height-7">
+            <span class="input-label" ng-bind-html="('showerAt' | translate) + ':'"></span>
+            <span class="input-label" ng-bind-html="('showerAt' | date: 'hh:mm')"></span>
+            <button class="item button height-5 shower-button" ng-bind-html="'button.shower' | translate"></button>
+        </label>
+        <button class="item button add-plant-button" ng-bind-html="'button.addPlant' | translate"></button>
+        <ion-scroll has-bouncing="true" class="padding">
+            <ion-list>
+                <ion-item>
+                    <h2>a</h2>
+                    <p>porcentagen</p>
+                </ion-item>
+                <ion-item>
+                    <h2>b</h2>
+                    <p>porcentagen</p>
+                </ion-item>
+                <ion-item>
+                    <h2>c</h2>
+                    <p>porcentagen</p>
+                </ion-item>
+            </ion-list>
+        </ion-scroll>
+
+
 
     </ion-content>
 </ion-view>

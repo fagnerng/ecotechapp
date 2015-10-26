@@ -18,6 +18,7 @@ angular.module('translations')
             home: 'Ecotech',
             about: 'Sobre',
             gardens: 'Hortas',
+            garden: 'Horta',
             plants: 'Plantas',
             tips: 'Dicas',
         },
@@ -40,6 +41,8 @@ angular.module('translations')
         button: {
             previous: 'Anterior',
             next: 'Pr&#243;xima',
+            addPlant: 'Adicionar planta',
+            shower: 'Regar',
         },
 
         plant: {
@@ -67,10 +70,15 @@ angular.module('translations')
         remove: 'Remover',
         city: 'Cidade',
         name: 'Nome',
+        size: 'Tamanho',
+
         placeholder: {
             city: 'Digite o nome da cidade',
-            name: 'Nome da Horta'
-        }
+            name: 'Nome da Horta',
+            width: 'Largura',
+            height: 'Profundidade',
+        },
+
     };
 
     function TranslationsConfig($translateProvider) {

@@ -13,4 +13,17 @@
         z-index: 99;
         box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.35);
     }
+
+    .shower-button {
+        position: fixed;
+        right: 0;
+        margin-right: 1%;
+        line-height: 100%;
+
+    }
+
+    .add-plant-button {
+        margin-top: 1%;
+        margin-left: 1%;
+    }
 }

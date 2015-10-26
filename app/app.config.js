@@ -74,7 +74,7 @@
             },
         };
         var gardenState = {
-            url: '/garden:id',
+            url: '/garden/:id',
             cache: false,
             abstract: false,
             templateUrl: 'gardens/garden/garden.html',
