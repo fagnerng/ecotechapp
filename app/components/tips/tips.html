@@ -10,22 +10,22 @@
             <span class="width-100 text-center c7 t3 padding-horizontal " ng-bind-html="'tips.hint' | translate"></span>
         </div>
         <ion-scroll class="height-65" direction="x" has-bouncing="true" delegate-handle="content"
-                    paging="true" on-scroll="tipsCtrl.onScroll()" scrollbar-x="false">
+                    paging="true" on-scroll="onScroll()" scrollbar-x="false">
             <div class="row row-no-padding">
-                <div class="col-100 page" ng-repeat="tip in tipsCtrl.tips" id="page_{{$index}}">
+                <div class="col-100 page" ng-repeat="tip in tips" id="page_{{$index}}">
                     <p class="c8 t2" ng-bind-html="('tips.'+tip) | translate"></p>
                 </div>
             </div>
         </ion-scroll>
         <div class="height-5 row row-center text-center width-60 col-offset-20">
-            <i ng-repeat="tip in tipsCtrl.tips" class="col icon" ng-click="tipsCtrl.goTo($index)"
-               ng-class="tipsCtrl.currentPage === $index ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'"></i>
+            <i ng-repeat="tip in tips" class="col icon" ng-click="goTo($index)"
+               ng-class="currentPage === $index ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'"></i>
         </div>
         <div class="row row-center height-15 row-no-padding">
-            <button class="button height-10 button-positive col-40 margin" ng-disabled="!tipsCtrl.shouldScrollRight()"
-                    ng-click="tipsCtrl.moveRight()" ng-bind-html="'button.previous' | translate"></button>
-            <button class="button height-10 button-positive col-40 margin" ng-disabled="!tipsCtrl.shouldScrollLeft()"
-                    ng-click="tipsCtrl.moveLeft()" ng-bind-html="'button.next' | translate"></button>
+            <button class="button height-10 button-positive col-40 margin" ng-disabled="!shouldScrollRight()"
+                    ng-click="moveRight()" ng-bind-html="'button.previous' | translate"></button>
+            <button class="button height-10 button-positive col-40 margin" ng-disabled="!shouldScrollLeft()"
+                    ng-click="moveLeft()" ng-bind-html="'button.next' | translate"></button>
         </div>
     </ion-content>
 </ion-view>

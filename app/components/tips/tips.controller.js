@@ -8,7 +8,7 @@
             .controller('TipsController', tipsController);
 
     function tipsController($location, $ionicScrollDelegate, $scope, $window) {
-        var vm = this;
+        var vm = $scope;
         vm.tips = [0,1,2,3,4,5,6];
         vm.currentPage = 0;
         var widthPage = $window.innerWidth;

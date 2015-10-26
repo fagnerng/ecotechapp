@@ -14,6 +14,9 @@
         'Utils',
         'Lodash',
         'translations',
+        'Weathers',
+        'GardensModule',
+
     ]);
 
 })();

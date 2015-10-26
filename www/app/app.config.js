@@ -17,6 +17,7 @@
             templateUrl: 'main/main.html',
             controller: 'MainController as mainCtrl'
         };
+
         var dashboardState = {
             url: '/dashboard',
             cache: true,
@@ -28,6 +29,7 @@
                 }
             }
         };
+
         var aboutState = {
             url: '/about',
             cache: true,
@@ -38,6 +40,7 @@
                 }
             }
         };
+
         var plantsState = {
             url: '/plants',
             cache: true,
@@ -48,6 +51,32 @@
                     controller: 'PlantsController as plantsCtrl'
                 }
             }
+        };
+        var plantState = {
+            url: '/plant:type',
+            cache: false,
+            abstract: false,
+            templateUrl: 'plants/plant/plant.html',
+            controller: 'PlantController as plantCtrl'
+        };
+
+        var gardensState = {
+            url: '/gardens',
+            cache: true,
+            abstract: false,
+            views: {
+                viewContent: {
+                    templateUrl: 'gardens/gardens.html',
+                    controller: 'GardensController as gardensCtrl'
+                }
+            }
+        };
+        var gardenState = {
+            url: '/garden:id',
+            cache: false,
+            abstract: false,
+            templateUrl: 'gardens/garden/garden.html',
+            controller: 'GardenController as gardenCtrl'
         };
         var tipsState = {
             url: '/tips',
@@ -60,20 +89,13 @@
                 }
             }
         };
-        var plantState = {
-            url: '/plant:type',
-            cache: false,
-            abstract: false,
-            templateUrl: 'plant/plant.html',
-            controller: 'PlantController as plantCtrl'
-        };
 
         // Application routing
-        $stateProvider.state('app', appState).state('app.dashboard', dashboardState).state('app.about', aboutState).state('app.plants', plantsState).state('app.tips', tipsState).state('plant', plantState);
+        $stateProvider.state('app', appState).state('app.dashboard', dashboardState).state('app.about', aboutState).state('app.plants', plantsState).state('app.gardens', gardensState).state('app.tips', tipsState).state('plant', plantState).state('garden', gardenState);
         //.state('app.gardens.list', gardensListState);
 
         // redirects to default route for undefined routes
-        $urlRouterProvider.otherwise('/app/plants');
+        $urlRouterProvider.otherwise('/app/gardens');
         //$urlRouterProvider.otherwise('/app/tips');
 
         // Disable/Enable SigPatientPlusDebug things

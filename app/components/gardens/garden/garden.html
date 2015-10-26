@@ -1,0 +1,14 @@
+<ion-view>
+    <ion-header-bar align-title="left" class="bar-positive">
+        <button id="btn-menu" class="button button-icon icon ion-chevron-left" utils-onclick-backpage></button>
+        <h1 class="title">{{'title.garden' | translate}}</h1>
+        <button class="button button-icon icon ion-edit" ng-click=""></button>
+    </ion-header-bar>
+    <ion-content class="garden" padding="false" scroll="false">
+        <label class="item item-input">
+            <span class="input-label" ng-bind-html="('city' | translate) + ':'"></span>
+            <input type="text" ng-change="autocomplete()" ng-model="g.city" placeholder="{{'city' | translate}}">
+        </label>
+
+    </ion-content>
+</ion-view>

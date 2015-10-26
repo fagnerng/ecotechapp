@@ -1,0 +1,23 @@
+<ion-view>
+    <ion-header-bar align-title="left" class="bar-positive">
+        <button id="btn-menu" class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+        <h1 class="title">{{'title.gardens' | translate}}</h1>
+        <button class="button button-icon icon ion-android-add-circle" ng-click="addGarden()"></button>
+    </ion-header-bar>
+    <ion-content class="gardens" padding="false" scroll="false">
+        <div class="row text-center row-center height-10" ng-if="loading">
+            <ion-spinner class=""></ion-spinner>
+        </div>
+        <ion-scroll class="height-100 padding" has-bouncing="true" >
+            <ion-list >
+                <ion-item class="item-thumbnail-left" ng-repeat="garden in gardens track by $index"
+                        ng-click="show($index)">
+                    <img src="assets/images/wheater/big/sunny.png">
+                    <h2>sunny</h2>
+                    <p>:desc</p>
+                </ion-item>
+
+            </ion-list>
+        </ion-scroll>
+    </ion-content>
+</ion-view>
