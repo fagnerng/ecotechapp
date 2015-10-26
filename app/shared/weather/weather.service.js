@@ -7,9 +7,10 @@
     angular.module('Weathers')
             .service('Weather', weatherService);
     var API_KEY = 'a4f27b907aad9332';
-    var URL = 'http://autocomplete.wunderground.com/';
-    var URL_AUTOCOMPLETE = URL + 'aq?query=';
-    var URL_HOURLY = URL + API_KEY + '/hourly/q/zmw:';
+    var LANG = 'BR';
+    var URL = 'http://api.wunderground.com/api/';
+    var URL_AUTOCOMPLETE = 'http://autocomplete.wunderground.com/aq?c='+ LANG + '&query=';
+    var URL_HOURLY = URL + API_KEY + '/hourly/lang:' + LANG + '/q/zmw:';
     function weatherService($http) {
         var service = {
             autocomplete: autocomplete,

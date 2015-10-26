@@ -8,18 +8,37 @@
             .controller('GardenController', gardenController);
 
     function gardenController($stateParams, $scope, Weather) {
-        console.log(JSON.stringify($stateParams));
-        var vm = this;
         $scope.g = {
             city: '',
-        }
-
+            name: '',
+        };
 
         $scope.autocomplete = function() {
             Weather.autocomplete($scope.g.city).then(function (response){
-                console.log(JSON.stringify(response.data));
+                $scope.cities = response.data.RESULTS.slice(0,3);
+                $scope.showAutoComplete = true;
             });
-        }
+        };
+
+        $scope.select = function(city) {
+
+            $scope.g.city = city.name;
+            $scope.g.zmw = city.zmw;
+            console.log(JSON.stringify( $scope.g));
+            Weather.hourly(city.zmw).then(function(response) {
+                console.log(JSON.stringify(response));
+            });
+
+            return $scope.g;
+        };
+
+        $scope.dimissPopOver = function() {
+            $scope.showAutoComplete = false;
+            return $scope.showAutoComplete;
+        };
+
+        $scope.cities = [];
+
     }
 
 })();

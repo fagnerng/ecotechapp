@@ -1765,6 +1765,12 @@ h1, h2, h3, h4, h5, h6, p {
 .garden .input-label {
   width: auto !important; }
 
+.garden .autocompleteList {
+  display: block;
+  position: absolute;
+  z-index: 99;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.35); }
+
 /**
  * Created by fagnerng on 23/10/2015.
  */

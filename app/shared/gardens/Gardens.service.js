@@ -7,34 +7,42 @@
     angular.module('GardensModule', [])
             .service('Gardens', GardensService);
 
-    function GardensService($ionicPlatform, $window) {
+    function GardensService($ionicPlatform, $window, $q) {
         var mPrefs;
+        var GARDENS_KEY = 'gardens';
+        var PREFIX = 'com.fagnerng.prefs';
         var gardens;
         var service = {
-            getGarden: '',
-            getAllGardens: '',
-            addGarden: '',
+            getGarden: getGardens,
+            getAllGardens: getGardens,
+            save: save,
+            addGarden: addGarden,
             removeGarden: '',
-            Garden: GardenObeject
         };
 
 
         $ionicPlatform.ready(function() {
             mPrefs = $window.plugins.appPreferences;
-            _getValue('gardens').then(function (response) {
-                if (response) {
-                    if (!gardens) {
-                        gardens = response;
-                    } else {
-                        for (var index in response) {
-                            gardens.push(response[index]);
-                        }
-                        _putValue('gardens', gardens);
-                    }
-                }
-             });
+            getGardens();
         });
 
+        function save(gardens) {
+            _putValue(GARDENS_KEY, gardens);
+        }
+
+        function getGardens() {
+            return $q(function(resolve) {
+                _getValue(GARDENS_KEY).then(function (response) {
+                    if (response) {
+                        gardens = response;
+                        resolve(gardens);
+                    } else {
+                        gardens = [];
+                        resolve(gardens);
+                    }
+                });
+            });
+        }
         function _getValue(key) {
             if (mPrefs) {
                 return $q(function(resolve, reject) {
@@ -59,14 +67,8 @@
             }
 
             gardens.push(garden);
-            _putValue('gardens', gardens);
+            _putValue(GARDENS_KEY, gardens);
         }
-
-        function GardenObeject() {
-            this.creationDate = new Date().toDateString();
-            return this;
-        }
-
 
         return service;
     }
