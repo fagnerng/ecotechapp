@@ -33,7 +33,6 @@
             for (var key in $scope.gardens) {
                 Weather.hourly($scope.gardens[key].zmw).then(function(response) {
                     var forecast = response.data.hourly_forecast;
-                    console.log(JSON.stringify(response));
                     $scope.gardens[key].url = forecast[0].icon_url;
                     $scope.$applyAsync();
                 })

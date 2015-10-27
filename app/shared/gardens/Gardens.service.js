@@ -54,7 +54,6 @@
         function getAllGardens() {
             return $q(function(resolve) {
                 _getValue(GARDENS_KEY).then(function (response) {
-                    console.log(JSON.stringify(response));
                     if (response) {
                         gardens = response;
                         resolve(gardens);
@@ -77,7 +76,6 @@
         function _putValue(key, value) {
             if (mPrefs) {
                 return $q(function(resolve, reject) {
-                    console.log(JSON.stringify(value));
                     mPrefs.store(resolve, reject, PREFIX, key, value);
                 });
             }
