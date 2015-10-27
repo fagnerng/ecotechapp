@@ -2,14 +2,14 @@
     <ion-header-bar align-title="left" class="bar-positive">
         <button id="btn-menu" class="button button-icon icon ion-chevron-left" utils-onclick-backpage></button>
         <h1 class="title">{{'title.garden' | translate}}</h1>
-        <button class="button button-icon icon" ng-class="onEdit? 'ion-checkmark-circled' : 'ion-edit'" ng-click="enableEdit()"></button>
+        <button class="button button-icon icon ion-checkmark-circled" ng-click="save()"></button>
     </ion-header-bar>
     <ion-content class="garden" padding="false" scroll="false" ng-click="dimissPopOver()">
-            <label class="item item-input " ng-disabled="!onEdit">
+            <label class="item item-input ">
                 <span class="input-label" ng-bind-html="('name' | translate) + ':'"></span>
                 <input class="c7" type="text" ng-model="g.name" placeholder="{{'placeholder.name' | translate}}">
             </label>
-            <label class="item item-input "ng-disabled="!onEdit">
+            <label class="item item-input ">
                 <span class="input-label" ng-bind-html="('city' | translate) + ':'"></span>
                 <input class="c7" type="text" ng-change="autocomplete()" ng-model="g.city" placeholder="{{'placeholder.city' | translate}}">
             </label>
@@ -18,13 +18,13 @@
                     {{city.name}}
                 </ion-item>
             </ion-list>
-            <label class="item item-input" ng-disabled="!onEdit">
+            <label class="item item-input">
                 <span class="input-label" ng-bind-html="('size' | translate) + ':'"></span>
                 <input class=" c7 text-center wh" type="number" ng-model="g.size.w" placeholder="{{'placeholder.width' | translate}}">
                 <span>X</span>
                 <input class=" c7 text-center wh" type="number" ng-model="g.size.h" placeholder="{{'placeholder.height' | translate}}">
             </label>
-            <label class="item item-input" ng-disabled="!onEdit">
+            <label class="item item-input">
                 <span class="input-label" ng-bind-html="('showerAt' | translate) + ':'"></span>
                 <span class=" c7" ng-if="g.showerAt" ng-bind-html="(g.showerAt | date: 'HH:mm - dd/MM')"></span>
                 <span class=" c7" ng-if="!g.showerAt" ng-bind-html="'Sem registro'"></span>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-50 row">
                             <span class="input-label" ng-bind-html="('prop' | translate) + ':'"></span>
-                            <input class="" type="number" value="{{plant.p}}">
+                            <input class="" type="number" ng-model="plant.p" >
                         </div>
                     </div>
                 </ion-item>

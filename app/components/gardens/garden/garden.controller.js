@@ -7,32 +7,31 @@
     angular.module('EcotechApp')
             .controller('GardenController', gardenController);
 
-    function gardenController($stateParams, $scope, Weather, $filter, $ionicPopover, Gardens, $cordovaToast, $state) {
+    function gardenController($stateParams, $scope, Weather, $filter, $ionicPopover, Gardens, $cordovaToast, $state,
+                              $ionicPlatform) {
         var popOverTemp = '<ion-popover-view><ion-content><ion-list><ion-item class="button item " ng-repeat="plant in plants" ng-click="addPlant(plant)"><h2 ng-bind-html="plant | translate"></h2></ion-item> </ion-list></ion-content></ion-popover-view>';
-        $scope.onEdit = false;
-        $scope.enableEdit = function() {
-            if (!$scope.onEdit) {
-                $scope.onEdit = true;
-                $scope.$applyAsync();
-            } else {
-                $scope.save();
-            }
+        $scope.g = {
+            city: '',
+            name: '',
+            plants: {},
         };
+        $ionicPlatform.ready(function() {
+            if ($stateParams.id === '_new') {
+                $scope.onEdit = true;
+                $scope.g = {
+                    city: '',
+                    name: '',
+                    plants: {},
+                };
+            } else {
+                Gardens.getGarden($stateParams.id).then(function(response) {
+                    $scope.g = response;
+                    $scope.$applyAsync();
+                    getPop();
+                });
+            }
+        });
 
-        if ($stateParams.id === '_new') {
-            $scope.onEdit = true;
-            $scope.g = {
-                city: '',
-                name: '',
-                plants: {},
-            };
-        } else {
-            $scope.g = {
-                city: '',
-                name: '',
-                plants: {},
-            };
-        }
 
         $scope.autocomplete = function() {
             $scope.g.zmw = null;
@@ -112,7 +111,6 @@
         };
 
         $scope.showPopOver = function($event) {
-            console.log('show');
             var allPlants = Gardens.plantList;
             $scope.plants = [];
             var mPlants = $scope.g.plants;
@@ -133,43 +131,38 @@
 
 
         $scope.save = function() {
-            console.log(JSON.stringify($stateParams));
             if ($stateParams.id ==='_new') {
                 $scope.g.id = new Date().getTime();
-                if ($scope.g.name === '') {
-                    showShortBottom('Nome n&#227;o pode ser vazio');
-                } else if (!$scope.g.zmw) {
-                    showShortBottom('Cidade invalida');
-                } else if (!$scope.g.size || !$scope.g.size.w || !$scope.g.size.h) {
-                    showShortBottom('Tamanho inv&#225;lido');
-                } else if ($scope.g.plants === {}) {
-                    showShortBottom('Voc&#234; deve ter pelo menos um tipo planta');
-                } else {
-                    var count = 0
-                    for (var key in $scope.g.plants) {
-                        count += $scope.g.plants[key].p;
-                    }
-                    if (count > 100) {
-                        showShortBottom('Propor&#231;&#227;o maior que 100%');
-                    } else {
-                        $scope.g.pop = null;
-                        Gardens.addGarden($scope.g);
-                        $cordovaToast.showShortBottom('Salvo com sucesso');
-                        $state.go('app.gardens');
-                        $scope.onEdit = false;
-                        $scope.$applyAsync();
-                    }
-                }
-
-            } else {
-                showShortBottom($scope.g.id);
             }
 
+            if ($scope.g.name === '') {
+                showShortBottom('Nome n&#227;o pode ser vazio');
+            } else if (!$scope.g.zmw) {
+                showShortBottom('Cidade invalida');
+            } else if (!$scope.g.size || !$scope.g.size.w || !$scope.g.size.h) {
+                showShortBottom('Tamanho inv&#225;lido');
+            } else if ($scope.g.plants === {}) {
+                showShortBottom('Voc&#234; deve ter pelo menos um tipo planta');
+            } else {
+                var count = 0
+                for (var key in $scope.g.plants) {
+                    count += $scope.g.plants[key].p;
+                }
+                if (count > 100) {
+                    showShortBottom('Propor&#231;&#227;o maior que 100%');
+                } else {
+                    $scope.g.pop = null;
+                    Gardens.addGarden($scope.g);
+                    $cordovaToast.showShortBottom('Salvo com sucesso');
+                    $scope.$applyAsync();
+                    $state.go('app.gardens');
+                }
+            }
         };
 
         function showShortBottom(msg) {
-            var custom = msg;
-            custom = 'Complete todos os Campos';
+            console.log(msg);
+            var custom = 'Complete todos os Campos';
             $cordovaToast.showShortBottom(custom);
 
         }

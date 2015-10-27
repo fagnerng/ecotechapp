@@ -12,9 +12,10 @@
             <ion-list >
                 <ion-item class="item-thumbnail-left" ng-repeat="garden in gardens"
                         ng-click="show(garden.id)">
-                    <img src="assets/images/wheater/big/sunny.png">
+                    <img ng-src="{{garden.url? garden.url: 'http://icons.wxug.com/i/c/k/fog.gif'}}">
                     <h2>{{garden.name}}</h2>
-                    <p>:desc</p>
+                    <p>Regado em: {{garden.showerAt? (garden.showerAt | date: 'HH:mm dd/MM'): 'Sem registro'}}</p>
+                    <p>Tamanho: {{garden.size.h * garden.size.w}}m&#178;</p>
                     <ion-option-button class="button-assertive" ng-click="showRemoveConfirm($index)">
                         {{'remove' | translate}}
 

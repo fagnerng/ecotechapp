@@ -89,9 +89,8 @@
             if(!gardens) {
                 gardens = {};
             }
-            console.log(JSON.stringify(gardens));
+
             gardens[garden.id] = garden;
-            console.log(JSON.stringify(gardens));
             _putValue(GARDENS_KEY, gardens);
         }
 
