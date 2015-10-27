@@ -2,63 +2,58 @@
     <ion-header-bar align-title="left" class="bar-positive">
         <button id="btn-menu" class="button button-icon icon ion-chevron-left" utils-onclick-backpage></button>
         <h1 class="title">{{'title.garden' | translate}}</h1>
-        <button class="button button-icon icon ion-edit" ng-click="openPopover()"></button>
+        <!--<button class="button button-icon icon  ion-edit" ng-click=""></button>-->
+        <button class="button button-icon icon ion-checkmark-circled " ng-click="save()"></button>
     </ion-header-bar>
     <ion-content class="garden" padding="false" scroll="false" ng-click="dimissPopOver()">
-
-        <label class="item item-input">
-            <span class="input-label" ng-bind-html="('name' | translate) + ':'"></span>
-            <input type="text" ng-model="g.name" placeholder="{{'placeholder.name' | translate}}">
-        </label>
-        <label class="item item-input">
-            <span class="input-label" ng-bind-html="('city' | translate) + ':'"></span>
-            <input type="text" ng-change="autocomplete()" ng-model="g.city" placeholder="{{'placeholder.city' | translate}}">
-        </label>
-        <ion-list ng-show="showAutoComplete" class="autocompleteList width-80 col-offset-10">
-            <ion-item ng-repeat="city in cities" ng-click="select(city)">
-                {{city.name}}
-            </ion-item>
-        </ion-list>
-        <label class="item item-input">
-            <span class="input-label" ng-bind-html="('size' | translate) + ':'"></span>
-            <input class="width-20" type="number" ng-model="g.size.w" placeholder="{{'placeholder.width' | translate}}">
-            <input class="width-20" type="number" ng-model="g.size.h" placeholder="{{'placeholder.height' | translate}}">
-        </label>
-        <label class="item item-input height-7">
-            <span class="input-label" ng-bind-html="('showerAt' | translate) + ':'"></span>
-            <span class="input-label" ng-bind-html="('showerAt' | date: 'hh:mm')"></span>
-            <button class="item button height-5 shower-button" ng-bind-html="'button.shower' | translate"></button>
-        </label>
-        <button class="item button add-plant-button" ng-bind-html="'button.addPlant' | translate"></button>
-        <ion-scroll has-bouncing="true" class="padding">
-            <ion-list>
-                <ion-item>
-                    <h2>a</h2>
-                    <p>porcentagen</p>
-                </ion-item>
-                <ion-item>
-                    <h2>b</h2>
-                    <p>porcentagen</p>
-                </ion-item>
-                <ion-item>
-                    <h2>c</h2>
-                    <p>porcentagen</p>
+            <label class="item item-input ">
+                <span class="input-label" ng-bind-html="('name' | translate) + ':'"></span>
+                <input class="c7" type="text" ng-model="g.name" placeholder="{{'placeholder.name' | translate}}">
+            </label>
+            <label class="item item-input ">
+                <span class="input-label" ng-bind-html="('city' | translate) + ':'"></span>
+                <input class="c7" type="text" ng-change="autocomplete()" ng-model="g.city" placeholder="{{'placeholder.city' | translate}}">
+            </label>
+            <ion-list ng-show="showAutoComplete" class="autocompleteList width-80 col-offset-10">
+                <ion-item ng-repeat="city in cities" ng-click="select(city)">
+                    {{city.name}}
                 </ion-item>
             </ion-list>
-        </ion-scroll>
+            <label class="item item-input">
+                <span class="input-label" ng-bind-html="('size' | translate) + ':'"></span>
+                <input class=" c7 text-center wh" type="number" ng-model="g.size.w" placeholder="{{'placeholder.width' | translate}}">
+                <span>X</span>
+                <input class=" c7 text-center wh" type="number" ng-model="g.size.h" placeholder="{{'placeholder.height' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label" ng-bind-html="('showerAt' | translate) + ':'"></span>
+                <span class=" c7" ng-if="g.showerAt" ng-bind-html="(g.showerAt | date: 'HH:mm - dd/MM')"></span>
+                <span class=" c7" ng-if="!g.showerAt" ng-bind-html="'Sem registro'"></span>
+                <button class="iten button  button-small button-balanced shower-button" ng-bind-html="'button.shower' | translate"
+                        ng-click="shower()"></button>
+            </label>
+            <div class="row">
+                <button class="col-30 item button button-small button-positive  icon-left ion-android-add-circle add-plant-button " ng-bind-html="'button.addPlant' | translate" ng-click="showPopOver($event)"></button>
+                <div class="col-70 row row-center text-center" ng-if="g.pop">
+                    <span ng-bind-html="g.pop"></span>
+                </div>
+            </div>
+
+            <ion-scroll has-bouncing="true" class="padding height-50" >
+                <ion-item class="item-plant height-10" ng-repeat="plant in g.plants">
+                    <div class="row row-no-padding row-center ">
+                        <div class="col-50">
+                            <h2 ng-bind-html="plant.name | translate"></h2>
+                        </div>
+                        <div class="col-50 row">
+                            <span class="input-label" ng-bind-html="('prop' | translate) + ':'"></span>
+                            <input class="" type="number" value="{{plant.p}}">
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-scroll>
 
 
 
     </ion-content>
 </ion-view>
-<!--
-<ion-popover-view>
-    <ion-content>
-        <ion-item>
-            <p>Opt1</p>
-        </ion-item>
-        <ion-item>
-            <p>Opt2</p>
-        </ion-item>
-    </ion-content>
-</ion-popover-view>-->

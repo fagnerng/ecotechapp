@@ -12,12 +12,25 @@
         var GARDENS_KEY = 'gardens';
         var PREFIX = 'com.fagnerng.prefs';
         var gardens;
+        var plantList = {
+            alecrim: 'alecrim',
+            cebolinha: 'cebolinha',
+            coentro: 'coentro',
+            hortela: 'hortela',
+            manjericao: 'manjericao',
+            oregano: 'oregano',
+            salsinha: 'salsinha',
+            salvia: 'salvia',
+            tomilho: 'tomilho'
+        };
+
         var service = {
             getGarden: getGardens,
             getAllGardens: getGardens,
             save: save,
             addGarden: addGarden,
             removeGarden: '',
+            plantList: plantList,
         };
 
 

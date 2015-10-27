@@ -41,7 +41,7 @@ angular.module('translations')
         button: {
             previous: 'Anterior',
             next: 'Pr&#243;xima',
-            addPlant: 'Adicionar planta',
+            addPlant: 'Plantas',
             shower: 'Regar',
         },
 
@@ -70,14 +70,18 @@ angular.module('translations')
         remove: 'Remover',
         city: 'Cidade',
         name: 'Nome',
-        size: 'Tamanho',
+        size: 'Tamanho (m)',
 
         placeholder: {
             city: 'Digite o nome da cidade',
             name: 'Nome da Horta',
             width: 'Largura',
             height: 'Profundidade',
+            showerAt: 'Ultima vez que foi regado'
         },
+
+        showerAt: 'Regado em',
+        prop: 'Propor&#231;&#227;o (%)'
 
     };
 

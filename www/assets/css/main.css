@@ -1781,6 +1781,13 @@ h1, h2, h3, h4, h5, h6, p {
   margin-top: 1%;
   margin-left: 1%; }
 
+.garden .wh {
+  margin: 0;
+  padding: 0; }
+
+.garden .item-plant {
+  padding: 1%; }
+
 /**
  * Created by fagnerng on 23/10/2015.
  */
