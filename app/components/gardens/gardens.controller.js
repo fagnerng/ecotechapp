@@ -48,20 +48,31 @@
             $state.go('garden', {id: id});
         };
 
-        $scope.showRemoveConfirm = function($index) {
+        $scope.showRemoveConfirm = function(id) {
             var confirmPopup = $ionicPopup.confirm({
                 title: 'Deseja remover horta?',
                 template: '<center>Opera&#231;&#227;o n&#227;o pode ser desfeita</center>'
             });
             confirmPopup.then(function(res) {
                 if(res) {
-                    $scope.gardens.splice($index, 1);
+                    $scope.gardens[id] = undefined;
                     Gardens.save($scope.gardens);
                     $scope.$applyAsync();
                 }
                 $ionicListDelegate.closeOptionButtons();
             });
         };
+
+        $scope.isEmpty = function() {
+            var empty = true;
+            if ($scope.gardens) {
+                for (var key in $scope.gardens) {
+                    empty = false;
+                }
+            }
+
+            return empty;
+        }
     }
 
 })();

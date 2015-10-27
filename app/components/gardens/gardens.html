@@ -8,6 +8,9 @@
         <div class="row text-center row-center height-10" ng-if="loading">
             <center><ion-spinner class=""></ion-spinner></center>
         </div>
+        <div class="row text-center row-center height-10" ng-if="!loading && isEmpty()">
+            <center>Sem hortas, adicione para continuar</center>
+        </div>
         <ion-scroll class="height-100 padding" has-bouncing="true" >
             <ion-list >
                 <ion-item class="item-thumbnail-left" ng-repeat="garden in gardens"
@@ -16,7 +19,7 @@
                     <h2>{{garden.name}}</h2>
                     <p>Regado em: {{garden.showerAt? (garden.showerAt | date: 'HH:mm dd/MM'): 'Sem registro'}}</p>
                     <p>Tamanho: {{garden.size.h * garden.size.w}}m&#178;</p>
-                    <ion-option-button class="button-assertive" ng-click="showRemoveConfirm($index)">
+                    <ion-option-button class="button-assertive" ng-click="showRemoveConfirm(garden.id)">
                         {{'remove' | translate}}
 
                     </ion-option-button>
