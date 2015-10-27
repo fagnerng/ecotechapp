@@ -144,7 +144,7 @@
             } else if ($scope.g.plants === {}) {
                 showShortBottom('Voc&#234; deve ter pelo menos um tipo planta');
             } else {
-                var count = 0
+                var count = 0;
                 for (var key in $scope.g.plants) {
                     count += $scope.g.plants[key].p;
                 }
@@ -161,8 +161,9 @@
         };
 
         function showShortBottom(msg) {
+
+            var custom = 'Complete todos os campos';
             console.log(msg);
-            var custom = 'Complete todos os Campos';
             $cordovaToast.showShortBottom(custom);
 
         }

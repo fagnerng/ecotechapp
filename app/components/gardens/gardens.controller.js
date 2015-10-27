@@ -30,13 +30,17 @@
         }
 
         function updateGardensWeather(){
-            for (var key in $scope.gardens) {
-                Weather.hourly($scope.gardens[key].zmw).then(function(response) {
-                    var forecast = response.data.hourly_forecast;
-                    $scope.gardens[key].url = forecast[0].icon_url;
-                    $scope.$applyAsync();
-                })
+            for (var id in $scope.gardens) {
+                updateIcon(id);
             }
+        }
+
+        function updateIcon(id) {
+            Weather.hourly($scope.gardens[id].zmw).then(function(response) {
+                var forecast = response.data.hourly_forecast;
+                $scope.gardens[id].url = forecast[0].icon_url;
+                $scope.$applyAsync();
+            })
         }
         $scope.addGarden = function() {
             $ionicListDelegate.closeOptionButtons();

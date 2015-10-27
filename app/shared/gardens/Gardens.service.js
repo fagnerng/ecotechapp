@@ -53,16 +53,21 @@
 
         function getAllGardens() {
             return $q(function(resolve) {
-                _getValue(GARDENS_KEY).then(function (response) {
-                    if (response) {
-                        gardens = response;
-                        resolve(gardens);
-                    } else {
-                        gardens = {};
-                        resolve(gardens);
-                    }
-                });
+                if (gardens) {
+                    resolve(gardens);
+                } else {
+                    _getValue(GARDENS_KEY).then(function (response) {
+                        if (response) {
+                            gardens = response;
+                            resolve(gardens);
+                        } else {
+                            gardens = {};
+                            resolve(gardens);
+                        }
+                    });
+                }
             });
+
         }
 
         function _getValue(key) {
@@ -91,6 +96,7 @@
             gardens[garden.id] = garden;
             _putValue(GARDENS_KEY, gardens);
         }
+
 
         return service;
     }

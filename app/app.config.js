@@ -107,7 +107,7 @@
             //.state('app.gardens.list', gardensListState);
 
         // redirects to default route for undefined routes
-        $urlRouterProvider.otherwise('/app/gardens');
+        $urlRouterProvider.otherwise('/app/dashboard');
         //$urlRouterProvider.otherwise('/app/tips');
 
         // Disable/Enable SigPatientPlusDebug things

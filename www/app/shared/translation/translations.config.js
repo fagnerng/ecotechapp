@@ -91,13 +91,14 @@
         oregano: 'Or&#233;gano',
         salsinha: 'Salsinha',
         salvia: 'S&#225;lvia',
-        tomilho: 'Tomilho'
+        tomilho: 'Tomilho',
+        teste: '� &#225; &aacute;'
 
     };
 
     function TranslationsConfig($translateProvider) {
         $translateProvider.translations('br', ptBr);
-        $translateProvider.useSanitizeValueStrategy(null);
+        $translateProvider.useSanitizeValueStrategy('escapeParameters');
         $translateProvider.preferredLanguage('br');
     }
     TranslationsConfig.$inject = ["$translateProvider"];

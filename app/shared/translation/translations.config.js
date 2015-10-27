@@ -90,13 +90,14 @@ angular.module('translations')
         oregano: 'Or&#233;gano',
         salsinha: 'Salsinha',
         salvia: 'S&#225;lvia',
-        tomilho: 'Tomilho'
+        tomilho: 'Tomilho',
+        teste: 'á &#225; &aacute;'
 
     };
 
     function TranslationsConfig($translateProvider) {
         $translateProvider.translations('br',ptBr );
-        $translateProvider.useSanitizeValueStrategy(null);
+        $translateProvider.useSanitizeValueStrategy('escapeParameters');
         $translateProvider.preferredLanguage('br');
     }
 })();
