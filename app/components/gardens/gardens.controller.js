@@ -55,7 +55,7 @@
             });
             confirmPopup.then(function(res) {
                 if(res) {
-                    $scope.gardens[id] = undefined;
+                    delete $scope.gardens[id];
                     Gardens.save($scope.gardens);
                     $scope.$applyAsync();
                 }

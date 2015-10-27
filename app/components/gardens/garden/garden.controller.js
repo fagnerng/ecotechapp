@@ -151,7 +151,7 @@
                 if (count > 100) {
                     showShortBottom('Propor&#231;&#227;o maior que 100%');
                 } else {
-                    $scope.g.pop = undefined;
+                    delete $scope.g.pop;
                     Gardens.addGarden($scope.g);
                     $cordovaToast.showShortBottom('Salvo com sucesso');
                     $scope.$applyAsync();
