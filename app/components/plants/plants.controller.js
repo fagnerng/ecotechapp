@@ -7,9 +7,19 @@
     angular.module('EcotechApp')
             .controller('PlantsController', PlantsController);
 
-    function PlantsController($state , Gardens) {
+    function PlantsController($state) {
         var vm = this;
-        vm.plantsList = Gardens.plantsList;
+        vm.plantsList = {
+            alecrim: 'alecrim',
+            cebolinha: 'cebolinha',
+            coentro: 'coentro',
+            hortela: 'hortela',
+            manjericao: 'manjericao',
+            oregano: 'oregano',
+            salsinha: 'salsinha',
+            salvia: 'salvia',
+            tomilho: 'tomilho'
+        };
 
         vm.show = function (item) {
             $state.go('plant', {type: item});

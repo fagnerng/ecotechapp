@@ -25,37 +25,47 @@
         };
 
         var service = {
-            getGarden: getGardens,
-            getAllGardens: getGardens,
+            getGarden: getGarden,
+            getAllGardens: getAllGardens,
             save: save,
             addGarden: addGarden,
             removeGarden: '',
             plantList: plantList,
-        };
 
+        };
 
         $ionicPlatform.ready(function() {
             mPrefs = $window.plugins.appPreferences;
-            getGardens();
+            getAllGardens();
         });
 
         function save(gardens) {
             _putValue(GARDENS_KEY, gardens);
         }
+        function getGarden(id) {
+            return $q(function(resolve) {
+                service.getAllGardens().then(function(response) {
+                    resolve(response[id]);
+                });
 
-        function getGardens() {
+            });
+        }
+
+        function getAllGardens() {
             return $q(function(resolve) {
                 _getValue(GARDENS_KEY).then(function (response) {
+                    console.log(JSON.stringify(response));
                     if (response) {
                         gardens = response;
                         resolve(gardens);
                     } else {
-                        gardens = [];
+                        gardens = {};
                         resolve(gardens);
                     }
                 });
             });
         }
+
         function _getValue(key) {
             if (mPrefs) {
                 return $q(function(resolve, reject) {
@@ -67,6 +77,7 @@
         function _putValue(key, value) {
             if (mPrefs) {
                 return $q(function(resolve, reject) {
+                    console.log(JSON.stringify(value));
                     mPrefs.store(resolve, reject, PREFIX, key, value);
                 });
             }
@@ -76,10 +87,11 @@
         function addGarden(garden) {
 
             if(!gardens) {
-                gardens = [];
+                gardens = {};
             }
-
-            gardens.push(garden);
+            console.log(JSON.stringify(gardens));
+            gardens[garden.id] = garden;
+            console.log(JSON.stringify(gardens));
             _putValue(GARDENS_KEY, gardens);
         }
 

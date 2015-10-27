@@ -42,7 +42,7 @@
         button: {
             previous: 'Anterior',
             next: 'Pr&#243;xima',
-            addPlant: 'Adicionar planta',
+            addPlant: 'Plantas',
             shower: 'Regar'
         },
 
@@ -82,7 +82,16 @@
         },
 
         showerAt: 'Regado em',
-        prop: 'Propor&#231;&#227;o (%)'
+        prop: 'Propor&#231;&#227;o (%)',
+        alecrim: 'Alecrim',
+        cebolinha: 'Cebolinha',
+        coentro: 'Coentro',
+        hortela: 'Hortel&#227;',
+        manjericao: 'Manjeric&#227;o',
+        oregano: 'Or&#233;gano',
+        salsinha: 'Salsinha',
+        salvia: 'S&#225;lvia',
+        tomilho: 'Tomilho'
 
     };
 

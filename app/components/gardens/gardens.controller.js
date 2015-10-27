@@ -9,24 +9,29 @@
 
     /*jshint esnext: true */
     function GardensController($ionicPlatform, $scope, $state,  $ionicListDelegate, $ionicPopup, Gardens) {
-        $scope.gardens = [];
-        $scope.loading = true;
+        $scope.gardens = {};
         $ionicPlatform.ready(function() {
+            updateGardens();
+        });
+
+
+        function updateGardens() {
+            $scope.loading = true;
             Gardens.getAllGardens().then(function(response) {
                 $scope.loading = false;
                 $scope.gardens = response;
                 $scope.$applyAsync();
             });
-        });
+        }
 
         $scope.addGarden = function() {
             $ionicListDelegate.closeOptionButtons();
             $state.go('garden', {id: '_new'});
         };
 
-        $scope.show = function($index) {
+        $scope.show = function(id) {
             $ionicListDelegate.closeOptionButtons();
-            $state.go('garden', {id: $index});
+            $state.go('garden', {id: id});
         };
 
         $scope.showRemoveConfirm = function($index) {

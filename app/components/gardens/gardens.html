@@ -11,9 +11,9 @@
         <ion-scroll class="height-100 padding" has-bouncing="true" >
             <ion-list >
                 <ion-item class="item-thumbnail-left" ng-repeat="garden in gardens"
-                        ng-click="show($index)">
+                        ng-click="show(garden.id)">
                     <img src="assets/images/wheater/big/sunny.png">
-                    <h2>{{garden.timestamp | date : 'HH:mm:ss.sss'}}</h2>
+                    <h2>{{garden.name}}</h2>
                     <p>:desc</p>
                     <ion-option-button class="button-assertive" ng-click="showRemoveConfirm($index)">
                         {{'remove' | translate}}
