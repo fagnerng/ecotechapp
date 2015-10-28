@@ -8,34 +8,56 @@
     </ion-header-bar>
 
     <!-- Main Content -->
-    <ion-content class="dashboard" padding="false" scroll="false">
-        <div class="height-30 text-center padding">
-            <span class="row row-center col-100 text-center">Hortas que voc&ecirc; deveria regar: </span>
-            <div ng-if="toShower.length > 0" class="row row-bottom text-center height-">
-                <div ng-repeat="ts in toShower track by ts.id" class="col-30 text-center shower-item" ng-click="goToGarden(ts.id)" >
-                    <span class="row width-100 c1 t3 text-center">{{ts.name}}</span>
-                    <span class="row width-100 c6 t4">Sem &aacute;gua desde:</span>
-                    <span class="row width-100 c6 t4" ng-show="ts.showerat" ng-bind="ts.showerAt | date:'HH:mm - dd/MM'"></span>
-                    <span class="row width-100 c6 t4" ng-show="!ts.showerat"> Sem Registro</span>
-                </div>
-            </div>
-            <div ng-if="toShower.length <= 0" class="row row-bottom text-center">
-                <span class="row row-center col-100 text-center">Todas as hortas foram regadas a pelo menos 24 horas</span>
-            </div>
-            </div>
+    <ion-content class="dashboard" padding="false" scroll="false" >
+        <div class="row text-center row-center col-100 height-10 width-100" ng-if="isEmpty">
+            <span class="width-100">Voc&ecirc; deve ter pelo menos uma horta </span>
         </div>
+        <div ng-if="!isEmpty">
+            <div class="height-30 padding">
+                <span class="row row-center">Previs&atilde;o para : {{selectGarden.name}}</span>
+                <div class="row row-center" ng-show="selectGarden.timestamp" class="padding">
+                    <div class="col-20 text-center item item-thumbnail-left">
+                        <img class="icon" ng-src="{{selectGarden.icon_url}}">
+                    </div>
+                    <div class=" col-70 text-left">
+                        <span class="row ">{{selectGarden.timestamp | date :'HH:mm - dd/MM'}}</span>
+                        <span class="row ">Humidade: {{selectGarden.humidity}}</span>
+                        <span class="row ">Temperatura: {{selectGarden.temp}}&ordm;C</span>
+                        <span class="row ">{{selectGarden.condition}}</span>
+                        <span class="row ">{{selectGarden.pop}}% de chance de chover</span>
 
-        <div class="height-30 padding">
-            <span class="row row-center col-100 text-center">Plantas que ainda n&#227;o tem: </span>
-            <div ng-if="plantMissing.length > 0" class="row row-bottom">
+                    </div>
 
-                <div ng-repeat="miss in plantMissing" class="col-25 text-center button button-icon" ng-click="goToGarden()" >
-                    <img class="row" src="assets/images/plants/{{miss}}/0.jpg">
-                    <span class="width-100 c1 t3" translate="{{miss}}"></span>
                 </div>
             </div>
-            <div class="row col-100 row-center text-center" ng-if="plantMissing.length <= 0">
-                <span class="row row-center col-100 text-center">J&aacute; possui todas as plantas em suas hortas</span>
+
+            <div class="height-30 text-center padding">
+                <span class="row row-center col-100 text-center">Hortas que voc&ecirc; deveria regar: </span>
+                <div ng-if="toShower.length > 0" class="row row-bottom text-center height-">
+                    <div ng-repeat="ts in toShower track by $index" class="col-30 text-center shower-item" ng-click="goToGarden(ts.id)" >
+                        <span class="row width-100 c1 t3 text-center">{{ts.name}}</span>
+                        <span class="row width-100 c6 t4">Sem &aacute;gua desde:</span>
+                        <span class="row width-100 c6 t4" ng-show="ts.showerat" ng-bind="ts.showerAt | date:'HH:mm - dd/MM'"></span>
+                        <span class="row width-100 c6 t4" ng-show="!ts.showerat"> Sem Registro</span>
+                    </div>
+                </div>
+                <div ng-if="toShower.length <= 0" class="row row-bottom text-center">
+                    <span class="row row-center col-100 text-center">Todas as hortas foram regadas a pelo menos 24 horas</span>
+                </div>
+            </div>
+
+            <div class="height-30 padding">
+                <span class="row row-center col-100 text-center">Plantas que ainda n&#227;o tem: </span>
+                <div ng-if="plantMissing.length > 0" class="row row-bottom">
+
+                    <div ng-repeat="miss in plantMissing" class="col-25 text-center button button-icon" ng-click="goToGarden()" >
+                        <img class="row" src="assets/images/plants/{{miss}}/0.jpg">
+                        <span class="width-100 c1 t3" translate="{{miss}}"></span>
+                    </div>
+                </div>
+                <div class="row col-100 row-center text-center" ng-if="plantMissing.length <= 0">
+                    <span class="row row-center col-100 text-center">J&aacute; possui todas as plantas em suas hortas</span>
+                </div>
             </div>
         </div>
     </ion-content>

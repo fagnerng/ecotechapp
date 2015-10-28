@@ -40,15 +40,15 @@
 
         function updateFeeds() {
             $scope.plantMissing = [];
-            if (_.isEmpty($scope.gardens)) {
-                $scope.info.push("Adicione pelo menos uma horta para aproveitar o aplicativo");
-            } else {
+            $scope.isEmpty = _.isEmpty($scope.gardens);
+            if (!$scope.isEmpty) {
                 checkShower();
             }
         }
 
         function checkShower() {
             var now = new Date().getTime();
+            $scope.toShower = [];
             for (var key in $scope.gardens) {
                 checkWeather($scope.gardens[key].id);
                 checkPlants($scope.gardens[key].id);
@@ -81,7 +81,7 @@
                     $scope.plantMissing.push(key);
                 }
             }
-
+            selectRandom();
             $scope.$applyAsync();
         }
 
@@ -92,6 +92,36 @@
                 $state.go('app.gardens');
             }
         };
+
+        function selectRandom() {
+            var count = getRandomInt(0, _.size($scope.gardens));
+            for (var key in $scope.gardens) {
+                count--;
+                $scope.selectGarden = $scope.gardens[key];
+                if (count <= 0) {
+                    break;
+                }
+            }
+            getWeather($scope.selectGarden.zmw);
+            $scope.$applyAsync();
+        }
+
+        function getWeather(zmw) {
+            Weather.hourly(zmw).then(function (response) {
+                var forecast = response.data.hourly_forecast[0];
+                $scope.selectGarden.timestamp = forecast.FCTTIME.epoch * 1000;
+                $scope.selectGarden.humidity = forecast.humidity + '%';
+                $scope.selectGarden.icon_url = forecast.icon_url;
+                $scope.selectGarden.temp = forecast.temp.metric;
+                $scope.selectGarden.condition = forecast.condition;
+                $scope.selectGarden.pop = forecast.pop;
+            })['catch'](function () {
+                console.log('err');
+            });
+        }
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
     }
     DashboardController.$inject = ["$log", "Gardens", "Weather", "$scope", "_", "$ionicPlatform", "$state"];
 })();

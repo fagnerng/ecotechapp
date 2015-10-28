@@ -78,7 +78,7 @@
                     var mValue = {
                             timestamp: hour,
                             humidity: humidity,
-                            pop: pop,
+                            pop: parseInt(pop),
                         };
 
                     if (!value){
@@ -92,7 +92,7 @@
                     }
                 }
 
-                if (parseInt(value.pop) === 0) {
+                if (value.pop === 0) {
                     $scope.g.pop = 'Sem previs&#227;o de chuva, com humidade m&#225;xima de ' + value.humidity + '% as ' +
                             $filter('date')(value.timestamp, 'HH:mm - dd/MM ');
                 } else {
