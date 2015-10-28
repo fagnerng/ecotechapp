@@ -136,20 +136,23 @@
             }
 
             if ($scope.g.name === '') {
-                showShortBottom('Nome n&#227;o pode ser vazio');
+                showShortBottom('Qual o nome da horta?');
             } else if (!$scope.g.zmw) {
                 showShortBottom('Cidade invalida');
             } else if (!$scope.g.size || !$scope.g.size.w || !$scope.g.size.h) {
-                showShortBottom('Tamanho inv&#225;lido');
+                showShortBottom('Qual o tamanho da horta?');
             } else if ($scope.g.plants === {}) {
-                showShortBottom('Voc&#234; deve ter pelo menos um tipo planta');
+                showShortBottom('Pelo menos um tipo planta');
             } else {
                 var count = 0;
                 for (var key in $scope.g.plants) {
                     count += $scope.g.plants[key].p;
+                    if ($scope.g.plants[key].p === 0) {
+                        delete $scope.g.plants[key];
+                    }
                 }
                 if (count > 100) {
-                    showShortBottom('Propor&#231;&#227;o maior que 100%');
+                    showShortBottom('Maior que 100%');
                 } else {
                     delete $scope.g.pop;
                     Gardens.addGarden($scope.g);
@@ -164,7 +167,7 @@
 
             var custom = 'Complete todos os campos';
             console.log(msg);
-            $cordovaToast.showShortBottom(custom);
+            $cordovaToast.showShortBottom(msg);
 
         }
 

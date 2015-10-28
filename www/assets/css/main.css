@@ -1613,7 +1613,7 @@ h1, h2, h3, h4, h5, h6, p {
   color: #3f5c9a !important; }
 
 .c2 {
-  color: #004f1f !important; }
+  color: #56ac27 !important; }
 
 .c3 {
   color: #FFFFFF !important; }
@@ -1654,7 +1654,7 @@ h1, h2, h3, h4, h5, h6, p {
  * Overwrite ionic SCSS
  */
 .bar {
-  border-bottom: solid 2px #004f1f !important; }
+  border-bottom: solid 2px #56ac27 !important; }
 
 /**
  * LAYOUT
@@ -1701,6 +1701,14 @@ h1, h2, h3, h4, h5, h6, p {
     .about .students .students-row .text-right {
       border-right: solid 1px #B3B3B3 !important; }
 
+.dashboard .button {
+  line-height: 100%; }
+
+.dashboard .shower-item {
+  background-color: #F2F2F2;
+  border: solid 1px #B3B3B3;
+  box-shadow: 1px 0px 0px #B3B3B3; }
+
 .gardens span {
   display: inline-block !important;
   width: 100%; }
@@ -1727,7 +1735,7 @@ h1, h2, h3, h4, h5, h6, p {
   border: none; }
 
 .side-menu .selected {
-  color: #004f1f !important; }
+  color: #56ac27 !important; }
 
 .plants span {
   display: inline-block !important;

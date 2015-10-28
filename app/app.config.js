@@ -22,7 +22,7 @@
 
         var dashboardState = {
             url: '/dashboard',
-            cache: true,
+            cache: false,
             abstract: false,
             views: {
                 viewContent: {
@@ -64,7 +64,7 @@
 
         var gardensState = {
             url: '/gardens',
-            cache: true,
+            cache: false,
             abstract: false,
             views: {
                 viewContent: {

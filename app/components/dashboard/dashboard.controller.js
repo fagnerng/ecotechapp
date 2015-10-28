@@ -4,13 +4,12 @@
     angular.module('EcotechApp')
         .controller('DashboardController', DashboardController);
 
-    function DashboardController($log, Gardens, Weather, $scope, _, $ionicPlatform) {
+    function DashboardController($log, Gardens, Weather, $scope, _, $ionicPlatform, $state) {
         $log.debug('DashboardController');
-        $scope.info = [];
         $scope.gardens;
-        var notShower = [];
-        var ShowerLonger = [];
-        var plantMissing = [];
+        $scope.toShower = [];
+        $scope.plantMissing = [];
+        var all;
         var ONE_DAY = 1000 * 60 * 60 * 24;
 
         $ionicPlatform.ready(function() {
@@ -22,6 +21,16 @@
         });
 
         function updateGardens(){
+            all = {alecrim: 0,
+                cebolinha: 0,
+                coentro: 0,
+                hortela: 0,
+                manjericao: 0,
+                oregano: 0,
+                salsinha: 0,
+                salvia: 0,
+                tomilho: 0
+            };
             Gardens.getAllGardens().then(function(response) {
                 $scope.gardens = response;
 
@@ -32,10 +41,7 @@
         }
 
         function updateFeeds() {
-            $scope.info = [];
-            notShower = [];
-            ShowerLonger = [];
-            plantMissing = [];
+            $scope.plantMissing = [];
             if (_.isEmpty($scope.gardens)) {
                 $scope.info.push("Adicione pelo menos uma horta para aproveitar o aplicativo");
             } else {
@@ -44,24 +50,19 @@
         }
 
         function checkShower() {
-            notShower = [];
-            ShowerLonger = [];
             var now = new Date().getTime();
             for (var key in $scope.gardens) {
                 checkWeather($scope.gardens[key].id);
                 checkPlants($scope.gardens[key].id);
-                if (!$scope.gardens[key].showerAt) {
-                    notShower.push($scope.gardens[key].id);
+                if (!$scope.gardens[key].showerAt &&  $scope.toShower.length < 3) {
+                    $scope.toShower.push($scope.gardens[key]);
                 } else {
                     var current = new Date($scope.gardens[key].showerAt).getTime();
-                    if ((current - now ) > ONE_DAY) {
-                        ShowerLonger.push($scope.gardens[key].id);
+                    if ((current - now ) > ONE_DAY && $scope.toShower.length < 3) {
+                        $scope.toShower.push($scope.gardens[key]);
                     }
                 }
             }
-            console.log('não regadas: '  + notShower.join(','));
-            console.log(' regadas a mais de 12h: '  + ShowerLonger.join(','));
-            console.log('Plantas ausentes '  + plantMissing.join(','));
 
         }
 
@@ -75,10 +76,23 @@
 
         function checkPlants(id) {
             for (var index in $scope.gardens[id].plants) {
-                var plant = $scope.gardens[id].plants[index].name;
-                if (plantMissing.indexOf(plant)=== -1) {
-                    plantMissing.push(plant);
+                all[index]++;
+            }
+
+            for (var key in all) {
+                if (all[key] === 0 && $scope.plantMissing.indexOf(key) === -1 && $scope.plantMissing.length < 4) {
+                    $scope.plantMissing.push(key);
                 }
+            }
+
+            $scope.$applyAsync();
+        }
+
+        $scope.goToGarden = function(id) {
+            if (id) {
+                $state.go('garden', {id: id});
+            } else {
+                $state.go('app.gardens');
             }
         }
 

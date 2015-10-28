@@ -22,8 +22,8 @@
         return {
             restrict: 'A',
             link: function link(scope, elem) {
-                elem.on('click', function () {
-                    $ionicPlatform.hardwareBackButtonClick();
+                elem.on('click', function (ev) {
+                    $ionicPlatform.hardwareBackButtonClick(ev);
                 });
             }
         };
