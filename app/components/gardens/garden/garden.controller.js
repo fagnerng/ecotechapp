@@ -93,7 +93,7 @@
                 }
 
                 if (value.pop === 0) {
-                    $scope.g.pop = 'Sem previs&#227;o de chuva, com humidade m&#225;xima de ' + value.humidity + '% as ' +
+                    $scope.g.pop = 'Sem previs&#227;o de chuva, com umidade m&#225;xima de ' + value.humidity + '% as ' +
                             $filter('date')(value.timestamp, 'HH:mm - dd/MM ');
                 } else {
                     $scope.g.pop = 'previs&#227;o de ' + value.pop + '% de chover as ' +

@@ -21,7 +21,7 @@
                     </div>
                     <div class=" col-70 text-left">
                         <span class="row ">{{selectGarden.timestamp | date :'HH:mm - dd/MM'}}</span>
-                        <span class="row ">Humidade: {{selectGarden.humidity}}</span>
+                        <span class="row ">Umidade: {{selectGarden.humidity}}</span>
                         <span class="row ">Temperatura: {{selectGarden.temp}}&ordm;C</span>
                         <span class="row ">{{selectGarden.condition}}</span>
                         <span class="row ">{{selectGarden.pop}}% de chance de chover</span>
@@ -47,7 +47,7 @@
             </div>
 
             <div class="height-30 padding">
-                <span class="row row-center col-100 text-center">Plantas que ainda n&#227;o tem: </span>
+                <span class="row row-center col-100 text-center">Plantas que voc&ecirc; ainda n&#227;o tem: </span>
                 <div ng-if="plantMissing.length > 0" class="row row-bottom">
 
                     <div ng-repeat="miss in plantMissing" class="col-25 text-center button button-icon" ng-click="goToGarden()" >
